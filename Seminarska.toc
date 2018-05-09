@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {slovene}
+\beamer@sectionintoc {1}{Osnovni pojmi}{3}{0}{1}
+\beamer@sectionintoc {2}{Konvergenti}{8}{0}{2}
+\beamer@sectionintoc {3}{Evklidov algoritem in veri\IeC {\v z}ni ulomki racionalnih \IeC {\v s}tevil}{17}{0}{3}
+\beamer@sectionintoc {4}{Postopek za iskanje veri\IeC {\v z}nega ulomka realnega \IeC {\v s}tevila}{20}{0}{4}
+\beamer@sectionintoc {5}{Veri\IeC {\v z}ni ulomek za \IeC {\v s}tevilo $e$}{27}{0}{5}
+\beamer@sectionintoc {6}{Kvadratne iracionale}{32}{0}{6}

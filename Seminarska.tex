@@ -1,0 +1,229 @@
+\documentclass{beamer}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\title[Verižni ulomki]{Verižni ulomki}
+\author[Gašper Urh]{\textbf {Gašper Urh}}
+\institute[FMF UL]{\textbf {Fakulteta za matematiko in fiziko Univerze v Ljubljani}}
+\date{\today}
+
+\usetheme{CambridgeUS}
+
+\newenvironment{df}{\begin{block}{\textbf{Definicija}}}{\end{block}}
+\newenvironment{iz}{\begin{block}{\textbf{Izrek}}}{\end{block}}
+\newenvironment{zg}{\begin{block}{\textbf{Zgled}}}{\end{block}}
+\newenvironment{trd}{\begin{block}{\textbf{Trditev}}}{\end{block}}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}
+\frametitle{Kazalo}
+\tableofcontents
+\end{frame}
+
+\section{Osnovni pojmi}
+
+\begin{frame}
+\frametitle{Osnovni pojmi}
+	\begin{df}
+	\textit{Verižni ulomek} je izraz oblike
+	\[ a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{...}}}} \]
+	pri čemer privzemimo, da so $a_n$ realna števila, ki so za $n \geq 1$ tudi pozitivna. Verižni ulomek je lahko bodisi končen, bodisi neskončen.
+	\newline
+	\newline
+	Zapišemo ga lahko tudi kot $[a_0, a_1, a_2, a_3, ...]$.
+	\end{df}
+\end{frame}
+
+\begin{frame}
+	\begin{df}
+	$[a_0, a_1, a_2, ...]$ je \textit{enostaven}, če $a_0 \in \Z$ ter $a_1, a_2, ... \in \N$
+	\end{df}
+	\pause
+	\begin{df}
+	Če so števci v verižnem ulomku različni od 1, ta izraz imenujemo \textit{posplošeni verižni ulomek}.
+	\end{df}
+\end{frame}
+
+\begin{frame}
+	\begin{zg}
+	\[ [3,6,4] = 3 + \cfrac{1}{6+\cfrac{1}{4}} = \frac{79}{25}\]
+	\end{zg}
+	\pause
+	\begin{zg}
+	Število $\pi$ lahko zapišemo: \[ \pi = 3 + \cfrac{1}{7 + \cfrac{1}{15 + \cfrac{1}{1 + \cfrac{1}{292 + \cfrac{1}{...}}}}} \]
+	\end{zg}
+\end{frame}
+
+\section{Konvergenti}
+
+\begin{frame}
+	\frametitle{Konvergenti}
+	\begin{df}
+		Naj bo $0 \leq n \leq m$. $n$-ti \textit{konvergent} verižnega ulomka $[a_0, a_1, ..., a_m]$ je $c_n = [a_0, a_1, ..., a_n]$. Za $n < m$ je to \textit{delni konvergent}.\\
+		\vspace{3mm}
+		Definirajmo dve zaporedji za $-2\leq n \leq m$:
+		\[ p_{-2} = 0, \quad p_{-1} = 1, \quad p_0 = a_0, \quad \dots, \quad p_n = a_{n}p_{n-1} + p_{n-2}, \quad \dots \]
+		\[ q_{-2} = 1,\quad q_{-1} = 0,\quad q_0 = 1,\quad \dots,\quad q_n = a_{n}q_{n-1} + q_{n-2},\quad \dots \]
+	\end{df}
+\pause
+	\begin{trd}
+	Naj bo $0\leq n \leq m$. Tedaj: \[c_n = [a_0, ..., a_n] = \frac{p_n}{q_n} \]
+	\end{trd}
+\end{frame}
+
+\begin{frame}
+	\begin{zg}
+	Konvergenti za $[4,6,9,3,2,1]$:
+	\begin{table}[]
+	\centering
+	\caption{Konvergenti}
+	\label{Tabela 1}
+	\begin{tabular}{l|llllll}
+	n    & 0   & 1   & 2    & 3     & 4      & 5        \\
+	$a_n$ & 2   & 2   & 3    & 4     & 2      & 6        \\
+	$p_n$ & 2   & 5   & 17   & 73    & 163    & 1051     \\
+	$q_n$ & 1   & 2   & 7    & 30    & 67     & 432
+		\end{tabular}
+		\end{table}
+	\end{zg}
+\end{frame}
+
+\begin{frame}
+	\begin{trd}
+	\[ p_n q_{n-1} - q_n p_{n-1} = (-1)^{n-1}, \] 
+	\[ p_n q_{n-2} - q_n p_{n-2} = (-1)^n a_n \] \hspace{4cm}$\Rightarrow p_n, q_n$ sta tuji. \vspace{5mm}
+	\[ \frac{p_n}{q_n} - \frac{p_{n-1}}{q_{n-1}} = (-1)^{n-1}\frac{1}{q_n q_{n-1}}, \]
+	\[ \frac{p_n}{q_n} - \frac{p_{n-2}}{q_{n-2}} = (-1)^{n}\frac{a_n}{q_n q_{n-2}} \]
+	\end{trd}
+\end{frame}
+
+\begin{frame}
+\[ \pi = [3, 7, 15, 1, 292, 1, ...] \] \pause
+Konvergenti so:
+	\begin{itemize}
+	\item $c_0 = 3$
+	\item $c_1 = \frac{22}{7} = 3,1428571$
+	\item $c_2 = \frac{333}{106} = 3,141509434$
+	\item $c_3 = \frac{355}{113} = 3,14159292$
+	\item $c_4 = \frac{103993}{33102} = 3,141592653$
+	\item $c_5 = \frac{104348}{33215} = 3,141592654$
+	\end{itemize}
+	\vspace{5mm}
+\pause
+Ali zaporedje delnih konvergentov konvergira za vsako realno število?
+\end{frame}
+
+\begin{frame}
+	\begin{trd}
+	Zaporedje sodih konvergentov je strogo naraščajoče, zaporedje lihih pa strogo padajoče. Za vsak $n, m \in \N$ je  $c_{2n} < c_{2m+1}.$
+	\end{trd}    \pause
+	\begin{iz}
+	Naj bo $[a_0, a_1, ...]$ enostaven verižni ulomek in naj bo za vsak $n$ $c_n = [a_0, a_1, ..., a_n]$ konvergent. Tedaj obstaja $$\lim_{n\to\infty}c_n$$
+	\end{iz}
+\end{frame}
+
+\section{Evklidov algoritem in verižni ulomki racionalnih števil}
+
+\begin{frame}
+\frametitle{Evklidov algoritem in verižni ulomki racionalnih števil}
+Naj bo $x = \frac{13}{32}$. Kako bi poiskali njegov zapis z verižnim ulomkom?
+\pause
+	\begin{trd}
+	Neko število je racionalno $\Leftrightarrow$ njegov zapis z verižnim ulomkom obstaja in je končen. (Euler, 1737)
+	\end{trd}
+\end{frame}
+
+\begin{frame}
+	\begin{trd}
+	Naj bo $c_n = [a_0, a_1, ..., a_n]$ eden od konvergentov verižnega ulomka $c_m = [a_0, a_1, ..., a_m]$. Veljata oceni: \[ |c_n-c_m|<\frac{1}{n^2} \hspace{2cm}|c_n-c_m|<\sqrt{2}\cdot 2^{-n} \]
+	\end{trd}
+	\vspace{5mm}
+	Vemo tudi, da $c_m$ vedno leži med $c_n$ in $c_{n+1}$ za vsak $0\leq n < m-1$.
+\end{frame}
+
+\section{Postopek za iskanje verižnega ulomka realnega števila}
+
+\begin{frame}
+\frametitle{Postopek za iskanje verižnega ulomka realnega števila}
+Naj bo $x \in \R$. \pause
+\[ x = a_0+t_0, \]
+kjer je $a_0 \in \Z$ ter $t_0 \in [0,1)$. \pause
+Če $t_0 \neq 0$, zapišemo \[ \frac{1}{t_0} = a_1 + t_1 \] \pause
+Postopek z $a_n \in \N$ za $n \geq 1$ ponavljamo, dokler $t_n \neq 0$ (zapis je lahko neskončen).
+\[ \frac{1}{t_n} = a_{n+1}+t_{n+1} \]  \pause
+	\begin{zg}
+	Razmerje zlatega reza: \[x = \frac{1+\sqrt{5}}{2} \]
+	\end{zg}
+\end{frame}
+
+\begin{frame}
+	\begin{iz}
+	Naj bo $x \in \R$. Tedaj je $x$ vrednost verižnega ulomka, ki ga dobimo z opisanim postopkom.
+	\end{iz} \pause
+	\begin{trd}
+	Naj bo $a_0, a_1, a_2, ...$ zaporedje realnih števil, pri čemer je $a_n > 0$ za $n\geq1$. Naj bo $c_n = [a_0, a_1, a_2, ..., a_n]$. Tedaj obstaja $lim_{n\to\infty}c_n \Leftrightarrow \sum_{n=0}^{\infty}a_n$ divergira.
+	\end{trd}
+\end{frame}
+
+\section{Verižni ulomek za število $e$}
+
+\begin{frame}
+\frametitle{Verižni ulomek za število $e$}
+	$e = [2, 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, ...] = [1, 0, 1, 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, ...]$
+	Rekurzija za $a_n$ v verižnem ulomku nam da rekurzivno formulo za števce in imenovalce konvergentov:
+	\[ p_{3n} = 2(2n-1)p_{3n-3}+p_{3n-6} \]
+	\[ q_{3n} = 2(2n-1)q_{3n-3}+q_{3n-6} \]
+	Uvedemo: $$x_n = p_{3n}$$ $$y_n=q_{3n}$$
+\end{frame}
+
+\begin{frame}
+Naj bo $$T_n = \int_{0}^{1}\frac{t^n(t-1)^n}{n!}e^t dt$$   \pause
+Izračunamo:
+$$T_0 = \int_{0}^{1}e^t dt = e -1$$
+$$T_1 = \int_{0}^{1}t(t-1)e^t dt=e-3$$    \pause
+In ugotovimo:$$T_n=y_n e-x_n\Rightarrow \frac{T_n}{y_n}=e-\frac{x_n}{y_n}$$    \pause
+$$\lim_{n\to\infty}T_n=0=\lim_{n\to\infty}(y_ne-x_n) \Rightarrow \lim_{n\to\infty}\frac{x_n}{y_n}=\lim_{n\to\infty}(e-\frac{T_n}{y_n}) =e$$
+\end{frame}
+
+\section{Kvadratne iracionale}
+
+\begin{frame}
+\frametitle{Kvadratne iracionale}
+	\begin{df}
+	Realno število $\alpha$ je \textit{kvadratne iracionala}, če je iracionalno in rešitev neke kvadratne enačbe s koeficienti iz $\Q$.
+	\end{df}  \pause
+	\begin{df}
+	Verižni ulomek $[a_0, a_1, a_2, ...]$ je \textit{periodičen}, če obstaja tak $h$, da je $$a_n=a_{n+h}$$ za vse dovolj velike $n$.
+	\end{df}
+\end{frame}
+
+\begin{frame}
+	\begin{zg}
+	Koliko je $[1, 2, 3, 1, 2, 3, ...]$? $$\alpha = 1+\cfrac{1}{2+\cfrac{1}{3+\cfrac{1}{1+\cfrac{1}{2+\cfrac{1}{3+\cfrac{1}{...}}}}}}=1+\cfrac{1}{2+\cfrac{1}{3+\cfrac{1}{\alpha}}}$$
+	$$\alpha = \frac{4+\sqrt{37}}{7}$$
+	\end{zg}
+\end{frame}
+
+\begin{frame}
+	\begin{iz}
+	\textit{Karakterizacija periodičnega verižnega ulomka}: Realno število $\alpha$ je kvadratna iracionala $\Leftrightarrow$ njegov zapis z verižnim ulomkom je periodičen.
+	\end{iz}
+	\begin{zg}
+	$$[1,\overline{2}] \pause = \sqrt{2}$$
+	\end{zg}
+\end{frame}
+
+\end{document}
