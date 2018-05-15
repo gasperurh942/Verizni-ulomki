@@ -13,7 +13,7 @@
 \title[Verižni ulomki]{Verižni ulomki}
 \author[Gašper Urh]{\textbf {Gašper Urh}}
 \institute[FMF UL]{\textbf {Fakulteta za matematiko in fiziko Univerze v Ljubljani}}
-\date{\today}
+\date{17. maj 2018}
 
 \usetheme{CambridgeUS}
 
@@ -72,7 +72,7 @@
 \begin{frame}
 	\frametitle{Konvergenti}
 	\begin{df}
-		Naj bo $0 \leq n \leq m$. $n$-ti \textit{konvergent} verižnega ulomka $[a_0, a_1, ..., a_m]$ je $c_n = [a_0, a_1, ..., a_n]$. Za $n < m$ je to \textit{delni konvergent}.\\
+		Naj bo $0 \leq n \leq m$. Število $c_n$ je $n$-ti \textit{konvergent} verižnega ulomka $[a_0, a_1, ..., a_m]$, če je $c_n = [a_0, a_1, ..., a_n]$. Za $n < m$ je to \textit{delni konvergent}.\\
 		\vspace{3mm}
 		Definirajmo dve zaporedji za $-2\leq n \leq m$:
 		\[ p_{-2} = 0, \quad p_{-1} = 1, \quad p_0 = a_0, \quad \dots, \quad p_n = a_{n}p_{n-1} + p_{n-2}, \quad \dots \]
@@ -86,7 +86,7 @@
 
 \begin{frame}
 	\begin{zg}
-	Konvergenti za $[4,6,9,3,2,1]$:
+	Konvergenti za $[2, 2, 3, 4, 2, 6]$:
 	\begin{table}[]
 	\centering
 	\caption{Konvergenti}
@@ -98,13 +98,14 @@
 	$q_n$ & 1   & 2   & 7    & 30    & 67     & 432
 		\end{tabular}
 		\end{table}
+		\[ 2 + \cfrac{1}{2 + \cfrac{1}{3+\cfrac{1}{4+\cfrac{1}{2+\cfrac{1}{6}}}}} \]
 	\end{zg}
 \end{frame}
 
 \begin{frame}
 	\begin{trd}
 	\[ p_n q_{n-1} - q_n p_{n-1} = (-1)^{n-1}, \] 
-	\[ p_n q_{n-2} - q_n p_{n-2} = (-1)^n a_n \] \hspace{4cm}$\Rightarrow p_n, q_n$ sta tuji. \vspace{5mm}
+	\[ p_n q_{n-2} - q_n p_{n-2} = (-1)^n a_n \] \pause \hspace{4cm}$\Rightarrow p_n, q_n$ sta si tuji. \vspace{5mm} \pause
 	\[ \frac{p_n}{q_n} - \frac{p_{n-1}}{q_{n-1}} = (-1)^{n-1}\frac{1}{q_n q_{n-1}}, \]
 	\[ \frac{p_n}{q_n} - \frac{p_{n-2}}{q_{n-2}} = (-1)^{n}\frac{a_n}{q_n q_{n-2}} \]
 	\end{trd}
@@ -120,6 +121,7 @@ Konvergenti so:
 	\item $c_3 = \frac{355}{113} = 3,14159292$
 	\item $c_4 = \frac{103993}{33102} = 3,141592653$
 	\item $c_5 = \frac{104348}{33215} = 3,141592654$
+	\item ...
 	\end{itemize}
 	\vspace{5mm}
 \pause
@@ -143,12 +145,15 @@ Naj bo $x = \frac{13}{32}$. Kako bi poiskali njegov zapis z verižnim ulomkom?
 \pause
 	\begin{trd}
 	Neko število je racionalno $\Leftrightarrow$ njegov zapis z verižnim ulomkom obstaja in je končen. (Euler, 1737)
+	\end{trd} \pause
+	\begin{trd}
+	Če lahko neko število zapišemo s končnim verižnim ulomkom, je ta z zahtevo $a_m \neq 1$ enolično določen.
 	\end{trd}
 \end{frame}
 
 \begin{frame}
 	\begin{trd}
-	Naj bo $c_n = [a_0, a_1, ..., a_n]$ eden od konvergentov verižnega ulomka $c_m = [a_0, a_1, ..., a_m]$. Veljata oceni: \[ |c_n-c_m|<\frac{1}{n^2} \hspace{2cm}|c_n-c_m|<\sqrt{2}\cdot 2^{-n} \]
+	Naj bo $c_n = [a_0, a_1, ..., a_n]$ eden od konvergentov enostavnega verižnega ulomka $c_m = [a_0, a_1, ..., a_m]$. Veljata oceni: \[ |c_n-c_m|<\frac{1}{n^2} \hspace{2cm}|c_n-c_m|<\sqrt{2}\cdot 2^{-n} \]
 	\end{trd}
 	\vspace{5mm}
 	Vemo tudi, da $c_m$ vedno leži med $c_n$ in $c_{n+1}$ za vsak $0\leq n < m-1$.
@@ -203,7 +208,7 @@ $$\lim_{n\to\infty}T_n=0=\lim_{n\to\infty}(y_ne-x_n) \Rightarrow \lim_{n\to\inft
 \begin{frame}
 \frametitle{Kvadratne iracionale}
 	\begin{df}
-	Realno število $\alpha$ je \textit{kvadratne iracionala}, če je iracionalno in rešitev neke kvadratne enačbe s koeficienti iz $\Q$.
+	Realno število $\alpha$ je \textit{kvadratna iracionala}, če je iracionalno in rešitev neke kvadratne enačbe s koeficienti iz $\Q$.
 	\end{df}  \pause
 	\begin{df}
 	Verižni ulomek $[a_0, a_1, a_2, ...]$ je \textit{periodičen}, če obstaja tak $h$, da je $$a_n=a_{n+h}$$ za vse dovolj velike $n$.
