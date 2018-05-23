@@ -1,0 +1,298 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[slovene]{babel} % jeziki
+\usepackage[utf8]{inputenc} % lahko pišem čšž
+\usepackage[T1]{fontenc} % prikaze čšž
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{eurosym}
+\usepackage{units}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{url}
+\usepackage{color}
+\usepackage[pdftitle={Moj naslov},bookmarks=true,urlbordercolor={1 1 1},linkbordercolor={1 1 1}]{hyperref}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\va}{\vec{a}}
+\newcommand{\vb}{\vec{b}}
+\newcommand{\vc}{\vec{c}}
+\newcommand{\vd}{\vec{d}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\pojem}[1]{\textsc{#1}}
+
+\theoremstyle{definition}
+\newtheorem{df}{Definicija}[section]
+
+\theoremstyle{proposition}
+\newtheorem{trd}{Trditev}[section]
+
+\theoremstyle{theorem}
+\newtheorem{iz}{Izrek}[section]
+
+\theoremstyle{lemma}
+\newtheorem{lem}{Lema}[section]
+
+\newtheorem*{op}{Opomba}
+
+\title{\textbf{\huge{Verižni ulomki}\\\normalsize{Seminarska naloga}}}
+\author{Gašper Urh}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Uvod}
+
+Verižni ulomki so za decimalnim zapisom manj uporabljana predstavitev realnih števil, a so kljub temu zelo koristni tako za reševanje nekaterih problemov teorije števil kot tudi za iskanje racionalnih približkov realnih (predvsem iracionalnih) števil. Z njimi se da na matematično lep način karakterizirati kvadratne iracionale, iskati rešitve diofantske enačbe in dokazati nekatere zelo pomembne izreke iz teorije števil. \\
+V svoji seminarski nalogi sem se poglobil predvsem v teoretično ozadje zapisa števila z verižnim ulomkom, na koncu in mestoma tudi v posameznih poglavjih pa podal nekaj primerov praktične uporabe le-tega.\\
+V poglavju \ref{ospojmi} bomo definirali verižni ulomek in nekatere osnovne pojme, ki jih bomo uporabljali v nadaljevanju, ter se seznanili z izgledom verižnega ulomka. Poglavje \ref{konv} je posvečeno pojmu konvergenta, nekaterim formulam in pojmom, ki jih bomo v nadaljevanju uporabljali, in konvergenci enostavnega verižnega ulomka. S poglavjem \ref{racionalna} si bomo ob racionalnih številih ogledali postopek iskanja verižnega ulomka, kar bomo v poglavju \ref{realna} razširili na iskanje verižnih ulomkov za poljubna realna števila. V poglavju \ref{euler} bomo izpeljali verižni ulomek za Eulerjevo število $e$ in v poglavju \ref{periode} pokazali povezavo med periodičnimi verižnimi ulomki in kvadratnimi iracionalami. Poglavje \ref{uporaba} poda nekaj preprostih primerov uporabe verižnih ulomkov.
+
+\section{Osnovni pojmi} \label{ospojmi}
+
+\begin{df}
+	\textit{Verižni ulomek} je izraz oblike
+	\[ a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{...}}}} \]
+	pri čemer privzemimo, da so $a_n$ realna števila, ki so za $n \geq 1$ tudi pozitivna. Verižni ulomek je lahko bodisi končen, bodisi neskončen.
+	\newline
+	\newline
+	Zapišemo ga lahko tudi kot $[a_0, a_1, a_2, a_3, ...]$.
+\end{df}
+	
+Iz definicije in oblike zapisa verižnega ulomka neposredno sledi naslednja ugotovitev:
+
+\begin{equation}
+\label{ocitno}
+[a_0, a_1, ..., a_n, [a_{n+1}, ...]]=\Bigg[ a_0, a_1, ..., a_n+\frac{1}{[a_{n+1}, ...]}\Bigg]
+\end{equation}
+
+V literaturi pogosto obravnavajo samo posebno lepe verižne ulomke. Take bomo v tem besedilu imenovali \textit{enostavni verižni ulomki}. Večinoma se bomo ukvarjali le s takimi.
+
+\begin{df}
+	$[a_0, a_1, a_2, ...]$ je \textit{enostaven}, če $a_0 \in \Z$ ter $a_1, a_2, ... \in \N$
+\end{df}
+
+Da dobimo občutek, kako je videti racionalno število, zapisano z verižnim ulomkom, izračunajmo \[ [3,6,4] = 3 + \cfrac{1}{6+\cfrac{1}{4}} = \frac{79}{25}\]
+Vidimo, da je za racionalna števila relativno enostavno najti vrednost verižnega ulomka. Kasneje bomo pokazali, da je tak verižni ulomek vedno končen.\\ Veliko zanimivejše je iskanje verižnega ulomka iracionalnega števila. Število $\pi$ lahko zapišemo kot neskončen verižni ulomek \[ \pi = 3 + \cfrac{1}{7 + \cfrac{1}{15 + \cfrac{1}{1 + \cfrac{1}{292 + \cfrac{1}{...}}}}} \]
+Kako priti do takega zapisa, bomo videli v poglavju \ref{realna}.
+
+\section{Konvergenti} \label{konv}
+
+V tem poglavju bomo opazovali, ali lahko nek neskončen verižni ulomek, za katerega velja $a_n \in \Z$ za vsak $n = 0, 1, 2, 3, ...$, predstavlja neko število. V ta namen si bomo ogledali zaporedje njegovih \textit{delnih konvergentov}.
+
+\begin{df}
+Naj bo $0 \leq n \leq m$. Število $c_n$ je $n$-ti \textit{konvergent} 		verižnega ulomka $[a_0, a_1, ..., a_m]$, če je $c_n = [a_0, a_1, ..., a_n]$. Za $n < m$ je to \textit{delni konvergent}.
+\end{df}
+
+Izračunajmo nekaj delnih konvergentov verižnega ulomka $[a_0, a_1, a_2, ...]$: 
+\begin{equation*}
+c_0=a_0,
+\end{equation*}
+\begin{equation}
+\label{prvikonvergenti}
+c_1=a_0+\cfrac{1}{a_1}=\frac{a_1 a_0 + 1}{a_1}
+\end{equation}
+\begin{equation*}
+c_2 = a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2}} =\frac{a_0 a_1 a_2 + a_0 + a_2}{a_1 a_2 + 1}
+\end{equation*}
+
+Definirajmo dve zaporedji za $-2\leq n \leq m$:
+\begin{align*}
+		p_{-2} &= 0, & p_{-1} &= 1, & p_0 &= a_0, & \dots, \quad p_n &= a_{n}p_{n-1} + p_{n-2}, & \dots \\
+		q_{-2} &= 1, & q_{-1} &= 0, & q_0 &= 1, & \dots, \quad q_n &= a_{n}q_{n-1} + q_{n-2}, & \dots
+\end{align*}
+		
+\begin{trd}
+Naj bo $0\leq n \leq m$. Tedaj:
+\begin{equation}
+\label{pninqn}
+c_n = [a_0, ..., a_n] = \frac{p_n}{q_n} = \frac{a_{n}p_{n-1} + p_{n-2}}{a_{n}q_{n-1} + q_{n-2}}
+\end{equation}
+\end{trd}
+
+\begin{op}
+Vemo, da je $a_1 \geq 1$, torej je $q_1 \geq 1$. Induktivno dobimo
+\begin{equation}
+\label{ocenaimenovalca}
+q_n \geq n
+\end{equation}
+\end{op}
+
+\begin{proof}
+Dokazujemo z indukcijo. Za $a_0, a_1$ vidimo resničnost trditve s pomočjo zgoraj izračunanih konvergentov (\ref{prvikonvergenti}). Privzemimo, da trditev velja za verižne ulomke dolžine $n$. Tedaj:
+\begin{equation*}
+\begin{split}
+c_{n+1}&=[a_0, ...,a_n, a_{n+1}]
+= \Big[a_0, ..., a_n + \frac{1}{a_{n+1}}\Big] =\\
+&= \frac{\big(a_n + \frac{1}{a_{n+1}}\big)p_{n-1}+p_{n-2}}{\big(a_n + \frac{1}{a_{n+1}}\big)q_{n-1}+q_{n-2}} =
+\frac{a_{n+1}(a_n p_{n-1} + p_{n-2}) + p_{n-1}}{a_{n+1}(a_n q_{n-1} + q_{n-2}) + q_{n-1}} =\\
+&=\frac{a_{n+1}p_n + p_{n-1}}{a_{n+1}q_n + q_{n-1}} = \frac{p_{n+1}}{q_{n+1}}
+\end{split}
+\end{equation*}
+Drugi enačaj sledi iz (\ref{ocitno}).
+\end{proof}
+
+\vspace{5mm}
+
+Iz zgornje rekurzije sledita še dve formuli:
+\begin{equation}
+\label{prvaformula}
+p_n q_{n-1} - q_n p_{n-1} = (-1)^{n-1}
+\end{equation}
+\begin{equation}
+\label{drugaformula}
+p_n q_{n-2} - q_n p_{n-2} = (-1)^n a_n,
+\end{equation}
+
+ki sta ekvivalentni formulama
+
+\begin{equation}
+\label{prvaformulaekv}
+\frac{p_n}{q_n} - \frac{p_{n-1}}{q_{n-1}} = (-1)^{n-1}\frac{1}{q_n q_{n-1}}
+\end{equation}
+\begin{equation}
+\label{drugaformulaekv}
+\frac{p_n}{q_n} - \frac{p_{n-2}}{q_{n-2}} = (-1)^{n}\frac{a_n}{q_n q_{n-2}}
+\end{equation}
+
+\begin{proof}
+Dokazali bomo samo formulo (\ref{prvaformula}). Na podoben način dokažemo (\ref{drugaformula}), formuli (\ref{prvaformulaekv}) in (\ref{drugaformulaekv}) pa dobimo iz (\ref{prvaformula}) in (\ref{drugaformula}) s primernim deljenjem enačbe.
+Bazo indukcije za (\ref{prvaformula}) dokažemo brez težav, le z vstavljanjem ustreznih vrednosti. Privzemimo sedaj, da fomula velja za $n-1$, torej 
+\[ p_{n-1} q_{n-2} - q_{n-1} p_{n-2} = (-1)^{n-2} \]
+\begin{equation*}
+\begin{split}
+p_n q_{n-1} - q_n p_{n-1} &= (a_{n}p_{n-1} + p_{n-2}) q_{n-1} - (a_{n}q_{n-1} + q_{n-2}) p_{n-1} = \\
+&= a_{n}p_{n-1}q_{n-1} + p_{n-2} q_{n-1} - a_{n}q_{n-1}p_{n-1} - q_{n-2} p_{n-1} = \\
+&= p_{n-2} q_{n-1} - q_{n-2} p_{n-1} = \\
+&= -(-1)^{n-2} = (-1)^{n-1}
+\end{split}
+\end{equation*}
+\end{proof}
+
+Oglejmo si ulomek $\frac{p_n}{q_n}$. Naj bo $x$ največji skupni delitelj števil $p_n$ in $q_n$. Tedaj $x$ deli $p_n q_{n-1} - q_n p_{n-1}$ in po (\ref{prvaformula}) deli $(-1)^{n-1}$. Torej $x= \pm 1$ in števili sta si tuji. Torej je $c_n$  pridobljen s (\ref{pninqn}) vedno okrajšan ulomek.\\
+
+\subsection{Konvergenca enostavnega verižnega ulomka} \label{konvca}
+
+Izračunajmo nekaj konvergentov verižnega ulomka za $\pi$.
+
+\[ \pi = [3, 7, 15, 1, 292, 1, ...] \]
+Konvergenti so:
+	\begin{itemize}
+	\item $c_0 = 3$
+	\item $c_1 = \frac{22}{7} = 3,1428571$
+	\item $c_2 = \frac{333}{106} = 3,141509434$
+	\item $c_3 = \frac{355}{113} = 3,14159292$
+	\item $c_4 = \frac{103993}{33102} = 3,141592653$
+	\item $c_5 = \frac{104348}{33215} = 3,141592654$
+	\item ...
+	\end{itemize}
+	
+Vidimo, da zaporedje prvih nekaj sodih konvergentov narašča, lihih pa pada.
+
+\begin{trd}
+\label{podzaporedji}
+Zaporedje sodih konvergentov je strogo naraščajoče, zaporedje lihih pa strogo padajoče. Za vsak $n, m \in \N$ je  $c_{2n} < c_{2m+1}$.
+\end{trd}
+\begin{proof}
+Po formuli (\ref{drugaformulaekv}) je razvidno, da jezaporedje $c_{2n}$ naraščajoče, $c_{2n-1}$ pa padajoče. \\
+Privzemimo, da obstajata $n, m$, da je $c_{2n} > c_{2m+1}$. Iz (\ref{prvaformulaekv}) sledi $c_{2r} < c_{2r+1} \forall r \in \N$. Torej $ n \neq m$. Denimo, da je $n < m$. Tedaj je $c_{2m+1} < c_{2n} < c_{2m}$, kar je protislovje, saj dobimo $c_{2m+1} < c_{2m}$. Podobno, če $n > m$, je $c_{2n+1} < c_{2m+1} < c_{2n}$, kar zopet vodi v protislovje.
+\end{proof}
+
+\begin{iz}
+\label{konvergenca}
+Naj bo $[a_0, a_1, ...]$ enostaven verižni ulomek in naj bo za vsak $n$ $c_n = [a_0, a_1, ..., a_n]$ konvergent. Tedaj obstaja $$\lim_{n\to\infty}c_n$$
+\end{iz}
+
+\begin{proof}
+Videli smo, da je zaporedje sodih konvergentov strogo naraščajoče in zaporedje lihih strogo padajoče. Za obe zaporedji velja, da sta omejeni, saj je vsak sodi konvergent spodnja meja za zaporedje lihih in obratno. Torej obstajata $\lim_{n\to\infty}c_{2n}$ in $\lim_{n\to\infty}c_{2n-1}$. Pokažimo, da sta enaki. To sledi iz (\ref{prvaformulaekv}) in (\ref{ocenaimenovalca}):
+\[ \left|c_{2n} - c_{2n-1}\right| = \frac{1}{q_{2n} q_{2n-1}} \leq \frac{1}{2n(2n-1)} \longrightarrow 0 \]
+\end{proof}
+
+Pokazali smo, da za vsak enostaven verižni ulomek obstaja limita zaporedja njegovih delnih konvergentov. Vsak enostaven verižni ulomek torej natanko določa neko število.
+
+\section{Evklidov algoritem in verižni ulomki racionalnih števil} \label{racionalna}
+
+Racionalna števila so razmeroma enostavna za zapisovanje z verižnim ulomkom, saj je njihov zapis vedno končen, kar nam zagotovi naslednja trditev.
+
+\begin{trd}
+\label{lastnosracionalnega}
+Neko število je racionalno $\Leftrightarrow$ njegov zapis z verižnim ulomkom obstaja in je končen.
+\end{trd}
+
+\begin{proof}
+($\Leftarrow$) Očitno je vsak končen verižni ulomek z nekaj dela mogoče zapisati kot enostaven ulomek, kar pomeni, da predstavlja racionalno število. Uporabimo (\ref{pninqn}).\\
+($\Rightarrow$) Uporabimo Evklidov algoritem. Naj bo $\frac{a}{b}$ nek okrajšan ulomek (torej je največji skupni delitelj $a$ in $b$ enak $1$).\\
+Zapišimo
+\begin{align*}
+a &= a_0 b + r_1 \\
+b &= a_1 r_1 + r_2 \\
+r_1 &= a_2 r_2 + r_3 \\
+&\vdots \\
+r_{n-2} &= a_{n-1} r_{n-1} + 1 \\
+r_{n-1} &= a_n + 0
+\end{align*}
+
+\vspace{5mm}
+
+S primernim deljenjem enačb dobimo
+\begin{align*}
+a/b &= a_0 + \frac{1}{b/r_1} \\
+b/r_1 &= a_1 + \frac{1}{r_1/r_2} \\
+r_1/r_2 &= a_2 + \frac{1}{r_2/r_3} \\
+&\vdots \\
+r_{n-2}/r_{n-1} &= a_{n-1} + \frac{1}{r_{n-1}} \\
+\end{align*}
+pri čemer operiramo zgolj s celimi števili. Dobimo ravno zapis $\frac{a}{b}$ s končnim enostavnim verižnim ulomkom
+\end{proof}
+
+\subsection{Enoličnost končnega enostavnega verižnega ulomka} \label{enolicnost}
+
+\begin{lem}
+\label{celidel}
+Naj bo $[a_0, a_1, ..., a_m]$ enostaven verižni ulomek in naj bo $a_m \neq 1$, $m \geq 1$. Tedaj velja $0<x-a_0<1$.
+\end{lem}
+\begin{proof}
+Velja $\frac{1}{x-a_0} = [a_1, ..., a_m]$. Ker so $a_n \geq 1$ za pozitivne $n$, je $x-a_0 > 0$. Če je $m=1$, je $a_1 \geq 2$ in $\frac{1}{x-a_0} \leq \frac{1}{2}$, torej trditev velja. Če je $m\geq2$, pa je $ [a_1, ..., a_m] > 0$ in velja $\frac{1}{x-a_0} = [a_1, ..., a_m] > a_1 \geq1$, zato je $x-a_0<1$.
+\end{proof}
+
+\begin{trd}
+\label{enolicnost}
+Če lahko $x$ zapišemo s končnim enostavnim verižnim ulomkom, je ta pri pogoju $a_m \neq 1$ enolično določen.
+\end{trd}
+\begin{proof}
+Naj bo $x=[a_0, a_1, ..., a_m]=[b_0, b_1, ..., b_p]$. Brez škode za splošnost je $m\leq p$. Za $m>0$ velja $0<x-a_0<1$ in $0<x-b_0<1$ po \ref{celidel}, torej sta $a_0$ in $b_0$ enaka celemu delu $x$. Tedaj s primernim odštevanjem in invertiranjem zgornje enačbe dobimo $[a_1, a_2, ..., a_m]=[b_1, b_2, ..., b_p]$. Postopek ponavljamo in dobimo $a_m =[b_m, b_{m+1}, ..., b_p]$. Če $m \neq p$, pridemo v protislovje z dejstvom, da je $a_m \in \Z$. \\
+Če je $m=0$, je $x$ celo število in velja $x-b_0 \in \Z$. Če $p\geq1$, je $0<x-b_0<1$, kar vodi v protislovje. Torej $x=a_0=b_0$. 
+\end{proof}
+
+\section{Postopek za iskanje verižnega ulomka realnega števila} \label{realna}
+
+Oglejmo si primer, ko moramo z verižnim ulomkom zapisati poljubno realno število. V tem primeru Evklidov algoritem seveda ne deluje. Opisati želimo najbolj intuitiven postopek za zapis takega števila.\\
+\vspace{5mm}
+Naj bo $x \in \R$.\\
+\[ x = a_0+t_0, \]
+kjer je $a_0 \in \Z$ ter $t_0 \in [0,1)$.\\
+Če $t_0 \neq 0$, zapišemo \[ \frac{1}{t_0} = a_1 + t_1 \]
+Postopek z $a_n \in \N$ za $n \geq 1$ ponavljamo, dokler $t_n \neq 0$ (zapis je lahko neskončen).
+
+
+
+\section{Verižni ulomek števila $e$} \label{euler}
+
+\section{Kvadratne iracionale in periodični verižni ulomki} \label{periode}
+
+\section{Nekaj primerov uporabe verižnih ulomkov} \label{uporaba}
+
+\section{Zaključek}
+
+\end{document}
