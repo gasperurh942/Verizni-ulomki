@@ -73,15 +73,15 @@
 
 \section{Uvod}
 
-Verižni ulomki so za decimalnim zapisom manj uporabljana predstavitev realnih števil, a so kljub temu zelo koristni tako za reševanje nekaterih problemov teorije števil kot tudi za iskanje racionalnih približkov realnih (predvsem iracionalnih) števil. Z njimi se da na matematično lep način karakterizirati kvadratne iracionale, iskati rešitve diofantske enačbe in dokazati nekatere zelo pomembne izreke iz teorije števil. \\
-V svoji seminarski nalogi sem se poglobil predvsem v teoretično ozadje zapisa števila z verižnim ulomkom.\\
+Verižni ulomki so za decimalnim zapisom manj uporabljana predstavitev realnih števil, a so kljub temu zelo koristni tako za reševanje nekaterih problemov teorije števil kot tudi za iskanje racionalnih približkov realnih (predvsem iracionalnih) števil. Z njimi se da na matematično lep način karakterizirati kvadratne iracionale, iskati rešitve diofantske enačbe in dokazati nekatere zelo pomembne izreke iz teorije števil. \par
+V svoji seminarski nalogi sem se poglobil predvsem v teoretično ozadje zapisa števila z verižnim ulomkom.\par
 V poglavju \ref{ospojmi} bomo definirali verižni ulomek in nekatere osnovne pojme, ki jih bomo uporabljali v nadaljevanju, ter se seznanili z izgledom verižnega ulomka. Poglavje \ref{konv} je posvečeno pojmu konvergenta, nekaterim formulam in pojmom, ki jih bomo v nadaljevanju uporabljali, ter konvergenci enostavnega verižnega ulomka. S poglavjem \ref{racionalna} si bomo ob racionalnih številih ogledali postopek iskanja verižnega ulomka, kar bomo v poglavju \ref{realna} razširili na iskanje verižnih ulomkov za poljubna realna števila. V poglavju \ref{euler} bomo izpeljali verižni ulomek za Eulerjevo število $e$ in v poglavju \ref{periode} pokazali povezavo med periodičnimi verižnimi ulomki in kvadratnimi iracionalami.
 
 \section{Osnovni pojmi} \label{ospojmi}
 
 \begin{df}
 	\textit{Verižni ulomek} je izraz oblike
-	\[ a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{...}}}} \]
+	\[ a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{...}}}}, \]
 	pri čemer privzemimo, da so $a_n$ realna števila, ki so za $n \geq 1$ tudi pozitivna. Verižni ulomek je lahko bodisi končen, bodisi neskončen.
 	\newline
 	\newline
@@ -101,8 +101,8 @@ V literaturi pogosto obravnavajo samo posebno lepe verižne ulomke. Take bomo v 
 	$[a_0, a_1, a_2, ...]$ je \textit{enostaven}, če $a_0 \in \Z$ ter $a_1, a_2, ... \in \N$
 \end{df}
 
-Da dobimo občutek, kako je videti racionalno število, zapisano z verižnim ulomkom, izračunajmo \[ [3,6,4] = 3 + \cfrac{1}{6+\cfrac{1}{4}} = \frac{79}{25}\]
-Vidimo, da je za racionalna števila relativno enostavno najti vrednost verižnega ulomka. Kasneje bomo pokazali, da je tak verižni ulomek vedno končen.\\ Veliko zanimivejše je iskanje verižnega ulomka iracionalnega števila. Število $\pi$ lahko zapišemo kot neskončen verižni ulomek \[ \pi = 3 + \cfrac{1}{7 + \cfrac{1}{15 + \cfrac{1}{1 + \cfrac{1}{292 + \cfrac{1}{...}}}}} \]
+Da dobimo občutek, kako je videti racionalno število, zapisano z verižnim ulomkom, izračunajmo \[ [3,6,4] = 3 + \cfrac{1}{6+\cfrac{1}{4}} = \frac{79}{25}.\]
+Vidimo, da je za racionalna števila razmeroma enostavno najti vrednost verižnega ulomka. Kasneje bomo pokazali, da je tak verižni ulomek vedno končen.\\ Veliko zanimivejše je iskanje verižnega ulomka iracionalnega števila. Število $\pi$ lahko zapišemo kot neskončen verižni ulomek \[ \pi = 3 + \cfrac{1}{7 + \cfrac{1}{15 + \cfrac{1}{1 + \cfrac{1}{292 + \cfrac{1}{...}}}}}. \]
 Kako priti do takega zapisa, bomo videli v poglavju \ref{realna}.
 
 \section{Konvergenti} \label{konv}
@@ -125,17 +125,17 @@ c_1=a_0+\cfrac{1}{a_1}=\frac{a_1 a_0 + 1}{a_1}
 c_2 = a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2}} =\frac{a_0 a_1 a_2 + a_0 + a_2}{a_1 a_2 + 1}
 \end{equation*}
 
-Bolj ali manj očitnno gre pri števcih in imenovalcih konvergentov za neko rekurzijo. Definirajmo dve zaporedji za $-2\leq n \leq m$:
+Bolj ali manj očitno gre pri števcih in imenovalcih konvergentov za neko rekurzijo. Definirajmo dve zaporedji za $-2\leq n \leq m$:
 \begin{align*}
 		p_{-2} &= 0, & p_{-1} &= 1, & p_0 &= a_0, & \dots, \quad p_n &= a_{n}p_{n-1} + p_{n-2}, & \dots \\
 		q_{-2} &= 1, & q_{-1} &= 0, & q_0 &= 1, & \dots, \quad q_n &= a_{n}q_{n-1} + q_{n-2}, & \dots
 \end{align*}
 		
 \begin{trd}
-Naj bo $0\leq n \leq m$. Tedaj:
+Naj bo $0\leq n \leq m$. Tedaj je
 \begin{equation}
 \label{pninqn}
-c_n = [a_0, ..., a_n] = \frac{p_n}{q_n} = \frac{a_{n}p_{n-1} + p_{n-2}}{a_{n}q_{n-1} + q_{n-2}}
+c_n = [a_0, ..., a_n] = \frac{p_n}{q_n} = \frac{a_{n}p_{n-1} + p_{n-2}}{a_{n}q_{n-1} + q_{n-2}}.
 \end{equation}
 \end{trd}
 
@@ -148,17 +148,17 @@ q_n \geq n
 \end{op}
 
 \begin{proof}
-Dokazujemo z indukcijo. Za $a_0, a_1$ vidimo resničnost trditve s pomočjo zgoraj izračunanih konvergentov (\ref{prvikonvergenti}). Privzemimo, da trditev velja za verižne ulomke dolžine $n$. Tedaj:
+Dokazujemo z indukcijo. Za $a_0, a_1$ vidimo resničnost trditve s pomočjo zgoraj izračunanih konvergentov (\ref{prvikonvergenti}). Privzemimo, da trditev velja za verižne ulomke dolžine $n$. Tedaj je
 \begin{equation*}
 \begin{split}
 c_{n+1}&=[a_0, ...,a_n, a_{n+1}]
 \equaltext{\text{*}}{} \Big[a_0, ..., a_n + \frac{1}{a_{n+1}}\Big] =\\
 &= \frac{\big(a_n + \frac{1}{a_{n+1}}\big)p_{n-1}+p_{n-2}}{\big(a_n + \frac{1}{a_{n+1}}\big)q_{n-1}+q_{n-2}} =
 \frac{a_{n+1}(a_n p_{n-1} + p_{n-2}) + p_{n-1}}{a_{n+1}(a_n q_{n-1} + q_{n-2}) + q_{n-1}} =\\
-&=\frac{a_{n+1}p_n + p_{n-1}}{a_{n+1}q_n + q_{n-1}} = \frac{p_{n+1}}{q_{n+1}}
+&=\frac{a_{n+1}p_n + p_{n-1}}{a_{n+1}q_n + q_{n-1}} = \frac{p_{n+1}}{q_{n+1}}.
 \end{split}
 \end{equation*}
-* sledi iz (\ref{ocitno}).
+Enakost * sledi iz (\ref{ocitno}).
 \end{proof}
 
 \vspace{5mm}
@@ -168,6 +168,7 @@ Iz zgornje rekurzije sledita še dve formuli:
 \label{prvaformula}
 p_n q_{n-1} - q_n p_{n-1} = (-1)^{n-1}
 \end{equation}
+in
 \begin{equation}
 \label{drugaformula}
 p_n q_{n-2} - q_n p_{n-2} = (-1)^n a_n,
@@ -179,26 +180,27 @@ ki sta ekvivalentni formulama
 \label{prvaformulaekv}
 \frac{p_n}{q_n} - \frac{p_{n-1}}{q_{n-1}} = (-1)^{n-1}\frac{1}{q_n q_{n-1}}
 \end{equation}
+ter
 \begin{equation}
 \label{drugaformulaekv}
-\frac{p_n}{q_n} - \frac{p_{n-2}}{q_{n-2}} = (-1)^{n}\frac{a_n}{q_n q_{n-2}}
+\frac{p_n}{q_n} - \frac{p_{n-2}}{q_{n-2}} = (-1)^{n}\frac{a_n}{q_n q_{n-2}}.
 \end{equation}
 
 \begin{proof}
 Dokazali bomo samo formulo (\ref{prvaformula}). Na podoben način dokažemo (\ref{drugaformula}), formuli (\ref{prvaformulaekv}) in (\ref{drugaformulaekv}) pa dobimo iz (\ref{prvaformula}) in (\ref{drugaformula}) s primernim deljenjem enačbe.
 Bazo indukcije za (\ref{prvaformula}) dokažemo brez težav, le z vstavljanjem ustreznih vrednosti. Privzemimo sedaj, da fomula velja za $n-1$, torej 
-\[ p_{n-1} q_{n-2} - q_{n-1} p_{n-2} = (-1)^{n-2} \]
+\[ p_{n-1} q_{n-2} - q_{n-1} p_{n-2} = (-1)^{n-2}. \]
 \begin{equation*}
 \begin{split}
 p_n q_{n-1} - q_n p_{n-1} &= (a_{n}p_{n-1} + p_{n-2}) q_{n-1} - (a_{n}q_{n-1} + q_{n-2}) p_{n-1} = \\
 &= a_{n}p_{n-1}q_{n-1} + p_{n-2} q_{n-1} - a_{n}q_{n-1}p_{n-1} - q_{n-2} p_{n-1} = \\
 &= p_{n-2} q_{n-1} - q_{n-2} p_{n-1} = \\
-&= -(-1)^{n-2} = (-1)^{n-1}
+&= -(-1)^{n-2} = (-1)^{n-1}.
 \end{split}
 \end{equation*}
 \end{proof}
 
-Oglejmo si ulomek $\frac{p_n}{q_n}$. Naj bo $x$ največji skupni delitelj števil $p_n$ in $q_n$. Tedaj $x$ deli $p_n q_{n-1} - q_n p_{n-1}$ in po (\ref{prvaformula}) deli $(-1)^{n-1}$. Torej $x= \pm 1$ in števili sta si tuji. Torej je $c_n$  pridobljen s (\ref{pninqn}) vedno okrajšan ulomek.\\
+Oglejmo si ulomek $\frac{p_n}{q_n}$. Naj bo $d$ največji skupni delitelj števil $p_n$ in $q_n$. Tedaj $d$ deli $p_n q_{n-1} - q_n p_{n-1}$ in po (\ref{prvaformula}) deli $(-1)^{n-1}$. Torej $d= \pm 1$ in števili sta si tuji. Torej je $c_n$  pridobljen s (\ref{pninqn}) vedno okrajšan ulomek.\\
 
 \subsection{Konvergenca enostavnega verižnega ulomka} \label{konvca}
 
@@ -223,13 +225,13 @@ Vidimo, da zaporedje prvih nekaj sodih konvergentov narašča, lihih pa pada.
 Zaporedje sodih konvergentov je strogo naraščajoče, zaporedje lihih pa strogo padajoče. Za vsak $n, m \in \N$ je  $c_{2n} < c_{2m+1}$.
 \end{trd}
 \begin{proof}
-Po formuli (\ref{drugaformulaekv}) je razvidno, da jezaporedje $c_{2n}$ naraščajoče, $c_{2n-1}$ pa padajoče. \\
+Po formuli (\ref{drugaformulaekv}) je razvidno, da je zaporedje $\{c_{2n}\}$ naraščajoče, $\{c_{2n-1}\}$ pa padajoče. \\
 Privzemimo, da obstajata $n, m$, da je $c_{2n} > c_{2m+1}$. Iz (\ref{prvaformulaekv}) sledi $c_{2r} < c_{2r+1} \forall r \in \N$. Torej $ n \neq m$. Denimo, da je $n < m$. Tedaj je $c_{2m+1} < c_{2n} < c_{2m}$, kar je protislovje, saj dobimo $c_{2m+1} < c_{2m}$. Podobno, če $n > m$, je $c_{2n+1} < c_{2m+1} < c_{2n}$, kar zopet vodi v protislovje.
 \end{proof}
 
 \begin{iz}
 \label{konvergenca}
-Naj bo $[a_0, a_1, ...]$ enostaven verižni ulomek in naj bo za vsak $n$ $c_n = [a_0, a_1, ..., a_n]$ konvergent. Tedaj obstaja $$\lim_{n\to\infty}c_n$$
+Naj bo $[a_0, a_1, ...]$ enostaven verižni ulomek in naj bo za vsak $n$ $c_n = [a_0, a_1, ..., a_n]$ konvergent. Tedaj obstaja $$\lim_{n\to\infty}c_n.$$
 \end{iz}
 
 \begin{proof}
@@ -245,7 +247,7 @@ Racionalna števila so razmeroma enostavna za zapisovanje z verižnim ulomkom, s
 
 \begin{trd}
 \label{lastnosracionalnega}
-Neko število je racionalno $\Leftrightarrow$ njegov zapis z verižnim ulomkom obstaja in je končen.
+Neko število je racionalno natanko tedaj, ko njegov zapis z verižnim ulomkom obstaja in je končen.
 \end{trd}
 
 \begin{proof}
@@ -258,7 +260,7 @@ b &= a_1 r_1 + r_2 \\
 r_1 &= a_2 r_2 + r_3 \\
 &\vdots \\
 r_{n-2} &= a_{n-1} r_{n-1} + 1 \\
-r_{n-1} &= a_n + 0
+r_{n-1} &= a_n + 0.
 \end{align*}
 
 \vspace{5mm}
@@ -269,7 +271,7 @@ a/b &= a_0 + \frac{1}{b/r_1} \\
 b/r_1 &= a_1 + \frac{1}{r_1/r_2} \\
 r_1/r_2 &= a_2 + \frac{1}{r_2/r_3} \\
 &\vdots \\
-r_{n-2}/r_{n-1} &= a_{n-1} + \frac{1}{r_{n-1}} \\
+r_{n-2}/r_{n-1} &= a_{n-1} + \frac{1}{r_{n-1}}, \\
 \end{align*}
 pri čemer operiramo zgolj s celimi števili. Dobimo ravno zapis $\frac{a}{b}$ s končnim enostavnim verižnim ulomkom
 \end{proof}
@@ -281,7 +283,7 @@ pri čemer operiramo zgolj s celimi števili. Dobimo ravno zapis $\frac{a}{b}$ s
 Naj bo $[a_0, a_1, ..., a_m]$ enostaven verižni ulomek in naj bo $a_m \neq 1$, $m \geq 1$. Tedaj velja $0<x-a_0<1$.
 \end{lem}
 \begin{proof}
-Velja $\frac{1}{x-a_0} = [a_1, ..., a_m]$. Ker so $a_n \geq 1$ za pozitivne $n$, je $x-a_0 > 0$. Če je $m=1$, je $a_1 \geq 2$ in $\frac{1}{x-a_0} \leq \frac{1}{2}$, torej trditev velja. Če je $m\geq2$, pa je $ [a_2, ..., a_m] > 0$ in velja $\frac{1}{x-a_0} = [a_1, ..., a_m] > a_1 \geq1$, zato je $x-a_0<1$.
+Velja $\frac{1}{x-a_0} = [a_1, ..., a_m]$. Ker velja $a_n \geq 1$ za pozitivne $n$, je $x-a_0 > 0$. Če je $m=1$, je $a_1 \geq 2$ in $\frac{1}{x-a_0} \leq \frac{1}{2}$, torej trditev velja. Če je $m\geq2$, pa je $ [a_2, ..., a_m] > 0$ in velja $\frac{1}{x-a_0} = [a_1, ..., a_m] > a_1 \geq1$, zato je $x-a_0<1$.
 \end{proof}
 
 \begin{trd}
@@ -294,7 +296,7 @@ Naj bo $x=[a_0, a_1, ..., a_m]=[b_0, b_1, ..., b_p]$. Brez škode za splošnost 
 \end{proof}
 
 \begin{op}
-Če sprostimo zahtevo  $a_m \neq 1$, lahko nek verižni ulomek zapišemo na natanko dva načina. $$\frac{5}{2}=[2,2]=[2,1,1]$$
+Kaj se zgodi, če ne zahtevamo, da je $a_m \neq 1$? Tedaj lahko enostaven neničelen verižni ulomek $[a_0, ..., a_{m-1}, 1]$ zapišemo tudi kot $[a_0, ..., a_{m-1}+1]$ in dobimo enostaven verižni ulomek, kjer je $a_{m-1}\neq1$, tak pa je za neko racionalno število natanko določen. Torej pri sprostitvi zahteve $a_m\neq 1$ dobimo natanko dva zapisa neničelnega racionalnega števila z verižnim ulomkom. $$\frac{5}{2}=[2,2]=[2,1,1]$$
 \end{op}
 
 \section{Postopek za iskanje verižnega ulomka realnega števila} \label{realna}
@@ -304,18 +306,18 @@ Oglejmo si primer, ko moramo z verižnim ulomkom zapisati poljubno realno števi
 Naj bo $x \in \R$.
 \[ x = a_0+t_0, \]
 kjer je $a_0 \in \Z$ ter $t_0 \in [0,1)$.\\
-Če $t_0 \neq 0$, zapišemo \[ \frac{1}{t_0} = a_1 + t_1 \]
+Če $t_0 \neq 0$, zapišemo \[ \frac{1}{t_0} = a_1 + t_1. \]
 Postopek z $a_n \in \N$ za $n \geq 1$ ponavljamo, dokler $t_n \neq 0$ (zapis je lahko neskončen).
 \[ \frac{1}{t_n} = a_{n+1}+t_{n+1} \] \vspace{5mm}
 
-\textbf{Zgled.} Vsem gotovo zelo znan je verižni ulomek, ki predstavlja razmerje zlatega reza, torej \[x = \frac{1+\sqrt{5}}{2} \] Po zgornjem postopku zapišemo to kot celi del in ostanek \[x = 1 +\frac{-1+\sqrt{5}}{2} \] Ostanek $t_0 \neq 0$ invertiramo in racionaliziramo imenovalec. Dobimo \[\frac{1}{t_0} =\frac{1+\sqrt{5}}{2} = x \] Torej velja \[x = 1 + t_0 = 1 + \frac{1}{x} = 1 + \cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{1+\ldots}}}\]
+\textbf{Zgled.} Vsem gotovo zelo znan je verižni ulomek, ki predstavlja razmerje zlatega reza, torej \[x = \frac{1+\sqrt{5}}{2}. \] Po zgornjem postopku zapišemo to kot celi del in ostanek. \[x = 1 +\frac{-1+\sqrt{5}}{2} \] Ostanek $t_0 \neq 0$ invertiramo in racionaliziramo imenovalec. Dobimo \[\frac{1}{t_0} =\frac{1+\sqrt{5}}{2} = x. \] Torej velja \[x = 1 + t_0 = 1 + \frac{1}{x} = 1 + \cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{1+\ldots}}}.\]
 
 Za $x$ iz zgornjega postopka sledi tudi naslednja lema.
 
 \begin{lem}
 \label{lema}
-Za vsak $n$, za katerega je $t_n \neq 0$ velja
-\[ x=[a_0, a_1, ..., a_n, \frac{1}{t_n}] \]
+Za vsak $n$, za katerega je $t_n \neq 0$, velja
+\[ x=[a_0, a_1, ..., a_n, \frac{1}{t_n}]. \]
 \end{lem}
 \begin{proof}
 Dokazujemo z indukcijo. Za $n=0,1$ trditev očitno velja. Naj trditev velja za $n-1$. Tedaj je
@@ -323,7 +325,7 @@ Dokazujemo z indukcijo. Za $n=0,1$ trditev očitno velja. Naj trditev velja za $
 \begin{split}
 x &= \big[a_0,...,a_{n-1},\frac{1}{t_{n-1}}\big] \\
 &= [a_0,...,a_{n-1}, a_n + t_n] \\
-&= \big[a_0, ...,a_{n-1}, a_n, \frac{1}{t_n}\big]
+&= \big[a_0, ...,a_{n-1}, a_n, \frac{1}{t_n}\big].
 \end{split}
 \end{equation}
 \end{proof}
@@ -336,7 +338,7 @@ Naj bo $x \in \R$. Tedaj je $x$ vrednost verižnega ulomka, ki ga dobimo z opisa
 \end{iz}
 \begin{proof}
 Uporabimo Lemo \ref{lema} in zapišimo
-\[ x =\big[a_0,..., a_n, \frac{1}{t_n}\big]\]
+\[ x =\big[a_0,..., a_n, \frac{1}{t_n}\big].\]
 Sedaj uporabimo (\ref{pninqn}), kjer upoštevamo njeno veljavnost ne glede na pogoj, da so vsi $a_n$ cela števila.
 \[x=\frac{\big(\frac{1}{t_n}\big)p_n+p_{n-1}}{\big(\frac{1}{t_n}\big)q_n+q_{n-1}}\]
 Sedaj izračunajmo razliko delnega konvergenta $c_n$ in vrednosti $x$. Dobimo
@@ -348,7 +350,7 @@ Sedaj izračunajmo razliko delnega konvergenta $c_n$ in vrednosti $x$. Dobimo
 &\equaltext{\text{*}}{} \frac{1}{\big(\frac{1}{t_n}q_n+q_{n-1}\big)q_n} \\
 &\leq \frac{1}{\big(a_{n+1}q_n + q_{n-1}\big)q_n} \\
 &= \frac{1}{q_{n+1}q_n} \\
-&\leq \frac{1}{(n+1)n} \longrightarrow 0
+&\leq \frac{1}{(n+1)n} \longrightarrow 0.
 \end{split}
 \end{equation*}
 V (*) smo uporabili formulo (\ref{prvaformula}). V prvem neenačaju smo uporabili, da je $\frac{1}{t_n} = a_{n+1}+t_{n+1}$, torej je $a_{n+1} \leq \frac{1}{t_n}$.
@@ -359,13 +361,13 @@ Neenostavni ulomki lahko tudi divergirajo. Za ugotovitev, ali taki ulomki konver
 
 \begin{trd}
 \label{divergenca}
-Naj bo $a_0, a_1, a_2, ...$ zaporedje realnih števil, pri čemer je $a_n > 0$ za $n\geq1$. Naj bo $c_n = [a_0, a_1, a_2, ..., a_n]$. Tedaj obstaja $lim_{n\to\infty}c_n \Leftrightarrow \sum_{n=0}^{\infty}a_n$ divergira.
+Naj bo $a_0, a_1, a_2, ...$ zaporedje realnih števil, pri čemer je $a_n > 0$ za $n\geq1$. Naj bo $c_n = [a_0, a_1, a_2, ..., a_n]$. Tedaj obstaja $\lim_{n\to\infty}c_n$ natanko tedaj, ko $\sum_{n=0}^{\infty}a_n$ divergira.
 \end{trd}
 \begin{proof}
 Dokaz najdemo v \cite{teorijastevil}, str. 105.
 \end{proof}
 
-Ta trditev je posplošitev izreka o konvergenci enostavnega verižnega ulomka, saj vrsta $\sum_{n=0}^{\infty}a_n$, kjer so $a_n$ naravna števila za $n \geq 1$ vedno divergira (členi te vrste se namreč ne približujejo $0$).
+Ta trditev je posplošitev izreka o konvergenci enostavnega verižnega ulomka, saj vrsta $\sum_{n=0}^{\infty}a_n$, kjer so $a_n$ naravna števila za $n \geq 1$, vedno divergira (členi te vrste se namreč ne približujejo $0$).
 
 \section{Verižni ulomek števila $e$} \label{euler}
 
@@ -380,17 +382,17 @@ a_{3n-2} &= 2(n-1) &\Rightarrow \quad & p_{3n-2} = 2(n-1)p_{3n-3}+p_{3n-4} \hfil
 
 Enaka rekurzija velja tudi za zaporedje $\{q_n\}$.\par
 Za tako zaporedje $\{a_n\}$ želimo dokazati, da je verižni ulomek $[a_0, a_1,...]$ enak $e$.\par Vse tri rekurzije želimo zmanjšati na eno samo rekurzijo, ki bo vključevala le člene $p_{3n}$, $p_{3n-3}$ in $p_{3n-6}$. Z nekaj substitucij dobimo rekurzijo
-\[ p_{3n} = 2(2n-1)p_{3n-3}+p_{3n-6} \]
-\[ q_{3n} = 2(2n-1)q_{3n-3}+q_{3n-6} \]
+\[ p_{3n} = 2(2n-1)p_{3n-3}+p_{3n-6}, \]
+\[ q_{3n} = 2(2n-1)q_{3n-3}+q_{3n-6}. \]
 
 Vemo, da obstaja limita delnih konvergentov tega verižnega ulomka, saj je enostaven. Dovolj je pokazati, da k $e$ konvergira podzaporedje $\{c_{3n}\}$, saj s tem dobimo stekališče konvergentnega zaporedja, ki je hkrati tudi limita tega zaporedja. Uvedemo torej $x_n = p_{3n}$ in $y_n = q_{3n}$. Velja:
-\[ x_n = 2(2n-1)p_{n-1}+p_{n-2} \]
-\[ y_n = 2(2n-1)q_{n-1}+q_{n-2} \]
+\[ x_n = 2(2n-1)p_{n-1}+p_{n-2}, \]
+\[ y_n = 2(2n-1)q_{n-1}+q_{n-2}. \]
 
 Iz zapisa prvih nekaj členov verižnega ulomka za $e$ pa tudi izračunamo:
-\[ x_0 = 1,\quad y_0=1,\quad x_1=3,\quad y_1=1\]
+\[ x_0 = 1,\quad y_0=1,\quad x_1=3,\quad y_1=1.\]
 
-Sedaj vpeljemo zaporedje integralov $$T_n = \int_{0}^{1}\frac{t^n(t-1)^n}{n!}e^t dt$$
+Sedaj vpeljemo zaporedje integralov $$T_n = \int_{0}^{1}\frac{t^n(t-1)^n}{n!}e^t dt.$$
 Izračunamo:
 $$T_0 = \int_{0}^{1}e^t dt = e -1$$
 $$T_1 = \int_{0}^{1}t(t-1)e^t dt=e-3$$
@@ -403,16 +405,16 @@ Naj bo $T_n$, $x_n$ in $y_n$ kot zgoraj. Tedaj velja $T_n=y_n e-x_n$.
 Za $n=0,1$ vidimo resničnost leme zgoraj. Predpostavimo, da lema velja za $T_{n-1}$. Z integracijo po delih integrala $T_n$ dobimo 
 \begin{equation*}
 \begin{split}
-T_n &= 2(2n-1)T_{n-1}+T{n-2} \\
+T_n &= 2(2n-1)T_{n-1}+T_{n-2} \\
 &=2(2n-1)(e y_{n-1} -x_{n-1}) + e y_{n-2} -x_{n-2} \\
 &=(2(2n-1)y_{n-1}+y_{n-2})e - (2(2n-1)x_{n-1}+x_{n-2}) \\
-&=y_n e - x_n
+&=y_n e - x_n.
 \end{split}
 \end{equation*}
 \end{proof}
 
-Očitno velja $lim_{n\to\infty}T_n =0$, saj funkcije pod integralom enakomerno konvergirajo k 0, torej je po Lemi \ref{rekurzija}:
-\[ \lim_{n\to\infty}(y_ne-x_n) = 0 \Rightarrow \lim_{n\to\infty}\frac{x_n}{y_n}=\lim_{n\to\infty}(e-\frac{T_n}{y_n}) =e \]
+Očitno velja $\lim_{n\to\infty}T_n =0$, saj funkcije pod integralom enakomerno konvergirajo k 0, torej je po Lemi \ref{rekurzija}:
+\[ \lim_{n\to\infty}(y_ne-x_n) = 0 \Rightarrow \lim_{n\to\infty}\frac{x_n}{y_n}=\lim_{n\to\infty}(e-\frac{T_n}{y_n}) =e. \]
 
 Naš verižni ulomek je torej res število $e$. V nasprotju s tem število
 $$\pi=[3, 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, ...]$$
@@ -426,7 +428,7 @@ Najprej definirajmo pojma, ki jih bomo spoznavali in povezali v tem poglavju.
 Realno število $\alpha$ je \textit{kvadratna iracionala}, če je iracionalno in rešitev neke kvadratne enačbe s koeficienti iz $\Q$.
 \end{df}
 \begin{df}
-Verižni ulomek $[a_0, a_1, a_2, ...]$ je \textit{periodičen}, če obstaja tak $h$, da je $$a_n=a_{n+h}$$ za vse dovolj velike $n$.
+Verižni ulomek $[a_0, a_1, a_2, ...]$ je \textit{periodičen}, če obstaja tak $h>0$, da je $$a_n=a_{n+h}$$ za vse dovolj velike $n$.
 \end{df}
 
 Primer periodičnega verižnega ulomka je denimo $x = [\overline{2}] =[2,2,2,2,...]$. Zanj velja
@@ -436,23 +438,23 @@ x&= \frac{2x+1}{x} \\
 x^2&= 2x+1 \\
 0&=x^2-2x-1\\
 x&=\frac{2+\sqrt{4+4}}{2}\\
-x&=1+\sqrt{2}
+x&=1+\sqrt{2}.
 \end{align*}
 
 Vidimo, da je ta verižni ulomek kvadratna iracionala, kar nas napelje na idejo, da je vsak periodičen verižni ulomek možno zapisati s kvadratno iracionalo.
 
 \begin{iz}
 \label{periodicni}
-\textit{Karakterizacija periodičnega verižnega ulomka}: Realno število $\alpha$ je kvadratna iracionala $\Leftrightarrow$ njegov zapis z verižnim ulomkom je periodičen.
+\textit{Karakterizacija periodičnega verižnega ulomka}: Realno število $\alpha$ je kvadratna iracionala natanko tedaj, ko je njegov zapis z verižnim ulomkom periodičen.
 \end{iz}
 \begin{proof}
-($\Leftarrow$) Brez škode za splošnost lahko predpostavimo $\alpha = [\overline{a_0, a_1, ..., a_n}]$. Tedaj je $\alpha = [a_0, a_1, ..., a_n, \alpha]$. Po (\ref{pninqn}) velja \[ \alpha = \frac{\alpha p_{n-1} + p_{n-2}}{\alpha q_{n-1} + q_{n-2}} \]
+($\Leftarrow$) Brez škode za splošnost lahko predpostavimo $\alpha = [\overline{a_0, a_1, ..., a_n}]$. Tedaj je $\alpha = [a_0, a_1, ..., a_n, \alpha]$. Po (\ref{pninqn}) velja \[ \alpha = \frac{\alpha p_{n-1} + p_{n-2}}{\alpha q_{n-1} + q_{n-2}}. \]
 S poenostavitvijo te enačbe pokažemo, da $\alpha$ zadostuje kvadratni enačbi z racionalnimi koeficienti. Ker je ulomek neskončen, $\alpha$ ne more biti racionalno število. Zato je $\alpha$ kvadratna iracionala.\\
 ($\Rightarrow$) gl. \cite{teorijastevil}, str. 113
 \end{proof}
 
 Smiselno se nam porodi vprašanje, kakšni so verižni ulomki algebraičnih števil višje stopnje, denimo $$\sqrt[3]{2} =[1, 3, 1, 5, 1, 1, 4, 1, 1, 8, 1, 14, 1, 10, 2, 1, 4, 12, 2, 3, 2, 1, 3, 4, 1, 1, 2, 14,
-3, ...]$$
+3, ...],$$
 kjer ni vidnega nobenega očitnega zaporedja. Povezava med algebraičnimi števili višje stopnje in verižnimi ulomki je odprt problem in predmet različnih razprav.
 \newpage
 
